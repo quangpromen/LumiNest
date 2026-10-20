@@ -10,7 +10,7 @@
 - [x] **Giai đoạn 3**: Xây dựng Shell Layout & Khung Component Dùng chung *(Hoàn thành)*
 - [x] **Giai đoạn 4**: Hiện thực hóa Trang chủ (Homepage) từng Section *(Hoàn thành & Đã nghiệm thu toàn diện)*
 - [ ] **Giai đoạn 5**: Hiệu ứng Chuyển động (Motion) & Micro-interactions
-- [ ] **Giai đoạn 6**: Xây dựng 4 Trang Chức năng Phụ (Listing đã hoàn thành P6-01; Detail, About, Contact đang chuẩn bị)
+- [ ] **Giai đoạn 6**: Xây dựng 4 Trang Chức năng Phụ (Đã hoàn thành 3/4 trang: P6-01 Listing, P6-03 About, P6-04 Contact; P6-02 Detail đang chuẩn bị)
 - [ ] **Giai đoạn 7**: Kiểm thử Responsive, Tối ưu SEO & Đánh giá Hiệu năng
 
 ---
@@ -85,8 +85,8 @@
 | :--- | :--- | :---: | :---: | :--- |
 | **P6-01** | **Trang Danh sách BĐS (`/bat-dong-san`)** | Cao | `DONE` | Đã hoàn thành toàn diện trang listing `/bat-dong-san`: Luxury Editorial header, thanh bộ lọc đa tiêu chí (keyword, loại hình, khu vực, khoảng giá VNĐ, diện tích m², số phòng ngủ), drawer bộ lọc di động (390px), sắp xếp tăng/giảm giá và diện tích, phân trang mượt mà, modal Quick View chống lỗi 404, đồng bộ 2 chiều URL query parameters với `HeroSearchWidget`, build pass 100%. |
 | **P6-02** | **Trang Chi tiết BĐS (`/bat-dong-san/[slug]`)** | Rất Cao | `TODO` | Thư viện ảnh lớn (Gallery), bảng thông số chi tiết (Sổ hồng, hướng nhà), mặt bằng căn hộ, form gửi yêu cầu tư vấn. |
-| **P6-03** | **Trang Về chúng tôi (`/ve-chung-toi`)** | Trung bình | `TODO` | Giới thiệu câu chuyện demo LumiNest và triết lý kiến trúc xanh; không bịa người sáng lập hoặc giải thưởng. |
-| **P6-04** | **Trang Liên hệ (`/lien-he`)** | Trung bình | `TODO` | Bản đồ trụ sở Hà Nội & TP.HCM, thông tin hotline, biểu mẫu đặt lịch hẹn tư vấn trực tiếp có validation. |
+| **P6-03** | **Trang Về chúng tôi (`/ve-chung-toi`)** | Trung bình | `DONE` | Hoàn thành giao diện Luxury Editorial: Hero banner kiến trúc toàn màn hình, câu chuyện ý tưởng LumiNest (không bịa thông tin lịch sử), Bento Grid 4 giá trị cốt lõi, triết lý kiến trúc & cảm xúc, 3 bước tiếp cận và banner CTA chuyển đổi. Build & lint pass 100%. |
+| **P6-04** | **Trang Liên hệ (`/lien-he`)** | Trung bình | `DONE` | Hoàn thành giao diện 2 cột: Cột thông tin quy trình tiếp nhận & thông báo demo minh bạch (không bịa hotline/địa chỉ giả), cột biểu mẫu tương tác với validation tiếng Việt, bản xem trước (preview state), tính năng sao chép nội dung vào clipboard và mở mailto, Accordion FAQ 4 câu hỏi thực tế và final CTA sang `/bat-dong-san`. |
 
 ---
 
