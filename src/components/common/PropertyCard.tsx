@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,9 +8,10 @@ import { Property, PropertyStatus, PropertyType } from "@/types/property";
 import { formatCurrencyVND, formatArea } from "@/lib/formatters";
 import { cn } from "@/lib/utils";
 
-interface PropertyCardProps {
+export interface PropertyCardProps {
   property: Property;
   className?: string;
+  onQuickView?: (property: Property) => void;
 }
 
 const STATUS_CONFIG: Record<PropertyStatus, { label: string; className: string }> = {
@@ -38,7 +41,7 @@ const TYPE_CONFIG: Record<PropertyType, string> = {
   "dinh-thu": "Dinh thự ven sông",
 };
 
-export function PropertyCard({ property, className }: PropertyCardProps) {
+export function PropertyCard({ property, className, onQuickView }: PropertyCardProps) {
   const statusInfo = STATUS_CONFIG[property.status] || {
     label: "Đang mở bán",
     className: "bg-emerald-600 text-white",
@@ -54,7 +57,13 @@ export function PropertyCard({ property, className }: PropertyCardProps) {
     >
       <div>
         {/* Image Container with 4:3 Ratio */}
-        <div className="relative aspect-[4/3] w-full overflow-hidden bg-evergreen-subtle">
+        <div
+          className={cn(
+            "relative aspect-[4/3] w-full overflow-hidden bg-evergreen-subtle",
+            onQuickView && "cursor-pointer"
+          )}
+          onClick={() => onQuickView?.(property)}
+        >
           <Image
             src={property.featuredImage}
             alt={property.title}
@@ -113,7 +122,13 @@ export function PropertyCard({ property, className }: PropertyCardProps) {
 
           {/* Title */}
           <div>
-            <h3 className="text-base sm:text-lg font-semibold text-evergreen-text-primary tracking-tight group-hover:text-evergreen-forest transition-colors line-clamp-1">
+            <h3
+              onClick={() => onQuickView?.(property)}
+              className={cn(
+                "text-base sm:text-lg font-semibold text-evergreen-text-primary tracking-tight group-hover:text-evergreen-forest transition-colors line-clamp-1",
+                onQuickView && "cursor-pointer"
+              )}
+            >
               {property.title}
             </h3>
             {property.tagline && (
@@ -136,13 +151,24 @@ export function PropertyCard({ property, className }: PropertyCardProps) {
           </span>
         </div>
 
-        <Link
-          href={`/bat-dong-san?type=${property.propertyType}`}
-          className="w-10 h-10 rounded-full bg-evergreen-subtle group-hover:bg-evergreen-lime text-evergreen-text-primary group-hover:text-evergreen-dark flex items-center justify-center transition-all duration-300 shadow-xs active:scale-95"
-          aria-label={`Xem thông tin ${property.title}`}
-        >
-          <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </Link>
+        {onQuickView ? (
+          <button
+            type="button"
+            onClick={() => onQuickView(property)}
+            className="w-10 h-10 rounded-full bg-evergreen-subtle group-hover:bg-evergreen-lime text-evergreen-text-primary group-hover:text-evergreen-dark flex items-center justify-center transition-all duration-300 shadow-xs active:scale-95 cursor-pointer"
+            aria-label={`Xem nhanh thông số ${property.title}`}
+          >
+            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </button>
+        ) : (
+          <Link
+            href={`/bat-dong-san?type=${property.propertyType}`}
+            className="w-10 h-10 rounded-full bg-evergreen-subtle group-hover:bg-evergreen-lime text-evergreen-text-primary group-hover:text-evergreen-dark flex items-center justify-center transition-all duration-300 shadow-xs active:scale-95"
+            aria-label={`Xem thông tin ${property.title}`}
+          >
+            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+        )}
       </div>
     </article>
   );

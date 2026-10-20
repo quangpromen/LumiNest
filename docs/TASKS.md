@@ -6,11 +6,11 @@
 ## TỔNG QUAN TIẾN ĐỘ
 
 - [x] **Giai đoạn 1**: Kế hoạch Dự án & Xây dựng Design System *(Hoàn thành)*
-- [x] **Giai đoạn 2**: Khởi tạo Dự án & Hạ tầng Kỹ thuật *(Hoàn thành - Chờ review)*
+- [x] **Giai đoạn 2**: Khởi tạo Dự án & Hạ tầng Kỹ thuật *(Hoàn thành)*
 - [x] **Giai đoạn 3**: Xây dựng Shell Layout & Khung Component Dùng chung *(Hoàn thành)*
-- [x] **Giai đoạn 4**: Hiện thực hóa Trang chủ (Homepage) từng Section *(Hoàn thành)*
+- [x] **Giai đoạn 4**: Hiện thực hóa Trang chủ (Homepage) từng Section *(Hoàn thành & Đã nghiệm thu toàn diện)*
 - [ ] **Giai đoạn 5**: Hiệu ứng Chuyển động (Motion) & Micro-interactions
-- [ ] **Giai đoạn 6**: Xây dựng 4 Trang Chức năng Phụ (Listing, Detail, About, Contact)
+- [ ] **Giai đoạn 6**: Xây dựng 4 Trang Chức năng Phụ (Listing đã hoàn thành P6-01; Detail, About, Contact đang chuẩn bị)
 - [ ] **Giai đoạn 7**: Kiểm thử Responsive, Tối ưu SEO & Đánh giá Hiệu năng
 
 ---
@@ -75,7 +75,7 @@
 | :--- | :--- | :---: | :---: | :--- |
 | **P5-01** | Tích hợp Scroll Reveal Animations | Trung bình | `TODO` | Các section xuất hiện mượt mà khi cuộn tới với `framer-motion` (Fade In Up nhẹ, không gây trễ giao diện). |
 | **P5-02** | Hiệu ứng Hover Thẻ BĐS & Nút bấm | Trung bình | `TODO` | Ảnh zoom nhẹ trong khung, nút có hiệu ứng active:scale-95, bóng đổ đổi màu mềm. |
-| **P5-03** | Tương tác Lọc Nhanh trên Search Widget | Trung bình | `TODO` | Nhấp chọn các chip tag lọc nhanh cập nhật tức thì trạng thái active. |
+| **P5-03** | Tương tác Lọc Nhanh trên Search Widget | Trung bình | `DONE` | Nhấp chọn các chip tag lọc nhanh cập nhật tức thì trạng thái active và hai chiều với select. |
 
 ---
 
@@ -83,7 +83,7 @@
 
 | Mã Task | Tên Nhiệm vụ | Độ ưu tiên | Trạng thái | Tiêu chí Nghiệm thu (Acceptance Criteria) |
 | :--- | :--- | :---: | :---: | :--- |
-| **P6-01** | **Trang Danh sách BĐS (`/bat-dong-san`)** | Cao | `TODO` | Trang listing đầy đủ bộ lọc nhiều tiêu chí (Search, Filter drawer, Sort theo giá/diện tích, Lưới thẻ BĐS). |
+| **P6-01** | **Trang Danh sách BĐS (`/bat-dong-san`)** | Cao | `DONE` | Đã hoàn thành toàn diện trang listing `/bat-dong-san`: Luxury Editorial header, thanh bộ lọc đa tiêu chí (keyword, loại hình, khu vực, khoảng giá VNĐ, diện tích m², số phòng ngủ), drawer bộ lọc di động (390px), sắp xếp tăng/giảm giá và diện tích, phân trang mượt mà, modal Quick View chống lỗi 404, đồng bộ 2 chiều URL query parameters với `HeroSearchWidget`, build pass 100%. |
 | **P6-02** | **Trang Chi tiết BĐS (`/bat-dong-san/[slug]`)** | Rất Cao | `TODO` | Thư viện ảnh lớn (Gallery), bảng thông số chi tiết (Sổ hồng, hướng nhà), mặt bằng căn hộ, form gửi yêu cầu tư vấn. |
 | **P6-03** | **Trang Về chúng tôi (`/ve-chung-toi`)** | Trung bình | `TODO` | Giới thiệu câu chuyện demo LumiNest và triết lý kiến trúc xanh; không bịa người sáng lập hoặc giải thưởng. |
 | **P6-04** | **Trang Liên hệ (`/lien-he`)** | Trung bình | `TODO` | Bản đồ trụ sở Hà Nội & TP.HCM, thông tin hotline, biểu mẫu đặt lịch hẹn tư vấn trực tiếp có validation. |

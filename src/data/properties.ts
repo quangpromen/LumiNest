@@ -451,4 +451,149 @@ export const mockProperties: Property[] = [
     ],
     isFeatured: false,
   },
+  {
+    id: "prop-13",
+    slug: "eco-oasis-urban-suite",
+    title: "Eco Oasis Urban Suite",
+    tagline: "Căn hộ xanh tối giản view sông Hàn dành cho chuyên gia",
+    propertyType: "can-ho",
+    status: "dang-mo-ban",
+    price: 4_200_000_000, // 4.2 Tỷ VNĐ (Dưới 5 Tỷ)
+    pricePerSquareMeter: "61.7 Triệu/m²",
+    location: {
+      address: "Đường Như Nguyệt (Địa chỉ minh hoạ)",
+      district: "Hải Châu",
+      city: "Đà Nẵng",
+      coordinates: { lat: 16.0821, lng: 108.2235 },
+    },
+    specs: {
+      bedrooms: 1,
+      bathrooms: 1,
+      usableArea: 68,
+      landArea: 68,
+      floors: 1,
+      direction: "Đông",
+      legal: "Sổ hồng lâu dài (Dự kiến minh hoạ)",
+    },
+    featuredImage:
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80",
+    ],
+    amenities: [
+      "Ban công cây xanh thanh lọc",
+      "Hệ thống lọc nước tại vòi",
+      "Bãi đỗ xe điện thông minh",
+    ],
+    isFeatured: false,
+  },
+  {
+    id: "prop-14",
+    slug: "the-grand-riverfront-shophouse",
+    title: "The Grand Riverfront Shophouse",
+    tagline: "Nhà phố thương mại ven sông chuẩn sống và kinh doanh thượng lưu",
+    propertyType: "nha-pho",
+    status: "dang-mo-ban",
+    price: 19_800_000_000, // 19.8 Tỷ VNĐ
+    pricePerSquareMeter: "70.7 Triệu/m²",
+    location: {
+      address: "Trục đường Mai Chí Thọ (Địa chỉ minh hoạ)",
+      district: "TP. Thủ Đức",
+      city: "TP. Hồ Chí Minh",
+      coordinates: { lat: 10.7785, lng: 106.7289 },
+    },
+    specs: {
+      bedrooms: 4,
+      bathrooms: 5,
+      usableArea: 280,
+      landArea: 140,
+      floors: 4,
+      direction: "Đông Nam",
+      legal: "Sổ hồng lâu dài (Dự kiến minh hoạ)",
+    },
+    featuredImage:
+      "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1200&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1200&q=80",
+    ],
+    amenities: [
+      "Vỉa hè lát đá tự nhiên 8m",
+      "Thang máy kính xuyên suốt",
+      "Không gian kinh doanh boutique",
+    ],
+    isFeatured: false,
+  },
+  {
+    id: "prop-15",
+    slug: "lagoon-bay-wellness-residence",
+    title: "Lagoon Bay Wellness Residence",
+    tagline: "Căn hộ phong cách resort tái tạo năng lượng bên vịnh biển",
+    propertyType: "can-ho",
+    status: "sap-ban-giao",
+    price: 8_900_000_000, // 8.9 Tỷ VNĐ
+    pricePerSquareMeter: "61.3 Triệu/m²",
+    location: {
+      address: "Quần thể Bãi Trường (Địa chỉ minh hoạ)",
+      district: "Dương Tơ",
+      city: "TP. Phú Quốc",
+      coordinates: { lat: 10.1652, lng: 103.9712 },
+    },
+    specs: {
+      bedrooms: 2,
+      bathrooms: 2,
+      usableArea: 145,
+      landArea: 145,
+      floors: 1,
+      direction: "Tây",
+      legal: "Sở hữu 50 năm (Dự kiến minh hoạ)",
+    },
+    featuredImage:
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80",
+    ],
+    amenities: [
+      "Hồ bơi khoáng nóng Onsen",
+      "Vườn yoga ven biển",
+      "Liệu trình wellness tại nhà",
+    ],
+    isFeatured: false,
+  },
+  {
+    id: "prop-16",
+    slug: "the-royal-lotus-waterfront-mansion",
+    title: "The Royal Lotus Waterfront Mansion",
+    tagline: "Dinh thự sinh thái siêu sang ven hồ Quảng An phiên bản giới hạn",
+    propertyType: "dinh-thu",
+    status: "hot",
+    price: 45_000_000_000, // 45.0 Tỷ VNĐ
+    pricePerSquareMeter: "69.2 Triệu/m²",
+    location: {
+      address: "Bán đảo Quảng An (Địa chỉ minh hoạ)",
+      district: "Tây Hồ",
+      city: "Hà Nội",
+      coordinates: { lat: 21.0645, lng: 105.8289 },
+    },
+    specs: {
+      bedrooms: 6,
+      bathrooms: 7,
+      usableArea: 650,
+      landArea: 820,
+      floors: 3,
+      direction: "Nam",
+      legal: "Sổ hồng lâu dài (Dự kiến minh hoạ)",
+    },
+    featuredImage:
+      "https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1200&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1200&q=80",
+    ],
+    amenities: [
+      "Hồ bơi kính đáy nổi",
+      "Sân đỗ trực thăng mini",
+      "Hầm rượu và phòng chiếu phim private",
+    ],
+    isFeatured: false,
+  },
 ];

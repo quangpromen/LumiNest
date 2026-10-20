@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   Building2,
   Banknote,
@@ -57,6 +58,7 @@ const QUICK_FILTERS = [
 ];
 
 export function HeroSearchWidget() {
+  const router = useRouter();
   // Search filter states
   const [propertyType, setPropertyType] = useState("all");
   const [priceRange, setPriceRange] = useState("all");
@@ -107,10 +109,8 @@ export function HeroSearchWidget() {
     const queryString = params.toString();
     const destination = queryString ? `/bat-dong-san?${queryString}` : "/bat-dong-san";
 
-    // Set interactive feedback for demo (as per HOMEPAGE_SPEC: prepare URL query params without fake completion)
-    setSubmitNotice(
-      `Bộ lọc đã sẵn sàng: "${destination}". Tham số tìm kiếm đã được chuẩn hoá để kết nối với Trang Danh Sách BĐS ở Phase 6.`
-    );
+    // Navigate to listing page with query params
+    router.push(destination);
   };
 
   return (

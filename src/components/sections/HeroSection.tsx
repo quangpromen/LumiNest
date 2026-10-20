@@ -6,7 +6,7 @@ import { HeroSearchWidget } from "@/components/sections/HeroSearchWidget";
 
 export function HeroSection() {
   return (
-    <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16 lg:pb-20 overflow-hidden">
+    <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-20 overflow-hidden">
       <Container variant="wide">
         {/* Architectural Hero Banner Card */}
         <div className="relative w-full rounded-2xl sm:rounded-3xl lg:rounded-[32px] xl:rounded-[36px] overflow-hidden min-h-[540px] sm:min-h-[580px] lg:h-[78svh] lg:min-h-[640px] lg:max-h-[860px] shadow-[0_25px_60px_-15px_rgba(18,21,18,0.22)] border border-evergreen-border-subtle/80 bg-evergreen-dark">

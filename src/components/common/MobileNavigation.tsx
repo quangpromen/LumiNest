@@ -101,7 +101,10 @@ export function MobileNavigation() {
                 {/* Navigation Links */}
                 <nav className="flex flex-col gap-2" aria-label="Menu điều hướng di động">
                   {mainNavItems.map((item) => {
-                    const isActive = pathname === item.href;
+                    const isActive =
+                      item.href === "/"
+                        ? pathname === "/"
+                        : pathname === item.href || pathname.startsWith(`${item.href}/`);
                     return (
                       <Link
                         key={item.href}
