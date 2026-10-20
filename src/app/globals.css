@@ -1,0 +1,128 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Design Tokens from DESIGN_SYSTEM.md */
+  /* Backgrounds */
+  --bg-primary: #FBFBF8;       /* Tone nền chính toàn trang (Warm Ivory) */
+  --bg-surface: #FFFFFF;       /* Nền card trắng tinh nổi trên nền ấm */
+  --bg-subtle: #F3F4EE;        /* Nền thẻ bento, input hover, chip tab */
+  --bg-dark: #121512;          /* Nền banner đêm CTA, footer, nút chính */
+  
+  /* Brand Accents */
+  --accent-lime: #C6EB28;      /* Xanh chồi non đặc trưng EverGreen */
+  --accent-lime-hover: #B5D920;/* Trạng thái hover của nút xanh */
+  --accent-forest: #223826;    /* Xanh rêu đậm cao cấp */
+  
+  /* Typography & Foreground */
+  --text-primary: #121512;     /* Màu chữ tiêu đề và nội dung chính */
+  --text-secondary: #5C6258;   /* Màu chữ phụ, mô tả, chú thích */
+  --text-muted: #8A9286;       /* Màu placeholder, nhãn phụ */
+  --text-inverted: #FFFFFF;    /* Màu chữ trên nền tối */
+  
+  /* Borders & Dividers */
+  --border-subtle: #E6E8DF;    /* Viền nhẹ ngăn cách card, input */
+  --border-strong: #D1D5C8;    /* Viền nhấn, active state */
+  
+  /* Status Colors */
+  --status-sale: #16A34A;      /* Đang mở bán (Xanh lá) */
+  --status-hot: #EA580C;       /* Sản phẩm Hot (Cam đất) */
+  --status-handover: #0284C7;  /* Sắp bàn giao (Xanh lam ngọc) */
+
+  /* Shadow Tokens */
+  --shadow-sm: 0 1px 3px rgba(18, 21, 18, 0.05);
+  --shadow-card: 0 10px 30px -10px rgba(18, 21, 18, 0.06);
+  --shadow-floating: 0 25px 50px -12px rgba(18, 21, 18, 0.12);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+
+  /* Radix / shadcn variable integration */
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
+  --card: var(--bg-surface);
+  --card-foreground: var(--text-primary);
+  --popover: var(--bg-surface);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--bg-dark);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--bg-subtle);
+  --secondary-foreground: var(--text-primary);
+  --muted: var(--bg-subtle);
+  --muted-foreground: var(--text-muted);
+  --accent: var(--accent-lime);
+  --accent-foreground: var(--text-primary);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--border-subtle);
+  --input: var(--border-subtle);
+  --ring: var(--border-strong);
+  --radius: 1rem;
+}
+
+@theme inline {
+  --color-evergreen-bg: var(--bg-primary);
+  --color-evergreen-card: var(--bg-surface);
+  --color-evergreen-subtle: var(--bg-subtle);
+  --color-evergreen-dark: var(--bg-dark);
+  --color-evergreen-lime: var(--accent-lime);
+  --color-evergreen-lime-hover: var(--accent-lime-hover);
+  --color-evergreen-forest: var(--accent-forest);
+  --color-evergreen-text-primary: var(--text-primary);
+  --color-evergreen-text-secondary: var(--text-secondary);
+  --color-evergreen-text-muted: var(--text-muted);
+  --color-evergreen-border-subtle: var(--border-subtle);
+  --color-evergreen-border-strong: var(--border-strong);
+  --color-evergreen-status-sale: var(--status-sale);
+  --color-evergreen-status-hot: var(--status-hot);
+  --color-evergreen-status-handover: var(--status-handover);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-plus-jakarta), Arial, sans-serif;
+  --font-heading: var(--font-plus-jakarta), Arial, sans-serif;
+
+  --shadow-card: 0 10px 30px -10px rgba(18, 21, 18, 0.06);
+  --shadow-floating: 0 25px 50px -12px rgba(18, 21, 18, 0.12);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    font-family: var(--font-sans);
+    overflow-x: clip;
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    overflow-x: clip;
+    min-height: 100vh;
+  }
+}
