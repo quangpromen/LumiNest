@@ -597,3 +597,43 @@ export const mockProperties: Property[] = [
     isFeatured: false,
   },
 ];
+
+/**
+ * Lấy thông tin bất động sản theo slug
+ */
+export function getPropertyBySlug(slug: string): Property | undefined {
+  return mockProperties.find((prop) => prop.slug === slug);
+}
+
+/**
+ * Lấy danh sách tất cả các slug để phục vụ generateStaticParams
+ */
+export function getAllPropertySlugs(): string[] {
+  return mockProperties.map((prop) => prop.slug);
+}
+
+/**
+ * Tìm các bất động sản tương tự (ưu tiên cùng loại hình hoặc cùng địa bàn, loại trừ BĐS hiện tại)
+ */
+export function getRelatedProperties(currentProperty: Property, limit = 4): Property[] {
+  const sameType = mockProperties.filter(
+    (p) => p.id !== currentProperty.id && p.propertyType === currentProperty.propertyType
+  );
+  if (sameType.length >= limit) {
+    return sameType.slice(0, limit);
+  }
+  const sameCity = mockProperties.filter(
+    (p) =>
+      p.id !== currentProperty.id &&
+      p.propertyType !== currentProperty.propertyType &&
+      p.location.city === currentProperty.location.city
+  );
+  const remaining = mockProperties.filter(
+    (p) =>
+      p.id !== currentProperty.id &&
+      p.propertyType !== currentProperty.propertyType &&
+      p.location.city !== currentProperty.location.city
+  );
+  return [...sameType, ...sameCity, ...remaining].slice(0, limit);
+}
+

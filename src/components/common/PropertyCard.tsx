@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BedDouble, Bath, Maximize2, MapPin, ArrowUpRight } from "lucide-react";
+import { BedDouble, Bath, Maximize2, MapPin, ArrowUpRight, Eye } from "lucide-react";
 import { Property, PropertyStatus, PropertyType } from "@/types/property";
 import { formatCurrencyVND, formatArea } from "@/lib/formatters";
 import { cn } from "@/lib/utils";
@@ -47,6 +47,7 @@ export function PropertyCard({ property, className, onQuickView }: PropertyCardP
     className: "bg-emerald-600 text-white",
   };
   const typeLabel = TYPE_CONFIG[property.propertyType] || "BĐS Sinh thái";
+  const detailUrl = `/bat-dong-san/${property.slug}`;
 
   return (
     <article
@@ -56,21 +57,21 @@ export function PropertyCard({ property, className, onQuickView }: PropertyCardP
       )}
     >
       <div>
-        {/* Image Container with 4:3 Ratio */}
-        <div
-          className={cn(
-            "relative aspect-[4/3] w-full overflow-hidden bg-evergreen-subtle",
-            onQuickView && "cursor-pointer"
-          )}
-          onClick={() => onQuickView?.(property)}
-        >
-          <Image
-            src={property.featuredImage}
-            alt={property.title}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 420px"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          />
+        {/* Image Container with 4:3 Ratio linking to detail page */}
+        <div className="relative aspect-[4/3] w-full overflow-hidden bg-evergreen-subtle">
+          <Link
+            href={detailUrl}
+            className="block w-full h-full"
+            aria-label={`Xem chi tiết ${property.title}`}
+          >
+            <Image
+              src={property.featuredImage}
+              alt={property.title}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 420px"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          </Link>
 
           {/* Subtle gradient vignette at bottom of image */}
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
@@ -90,6 +91,25 @@ export function PropertyCard({ property, className, onQuickView }: PropertyCardP
               {typeLabel}
             </span>
           </div>
+
+          {/* Quick View trigger button if supported */}
+          {onQuickView && (
+            <div className="absolute top-12 right-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onQuickView(property);
+                }}
+                className="px-3 py-1.5 rounded-full bg-white/95 hover:bg-white text-evergreen-text-primary text-[11px] font-semibold shadow-md backdrop-blur-md flex items-center gap-1.5 border border-evergreen-border-subtle hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                aria-label={`Xem nhanh thông số ${property.title}`}
+              >
+                <Eye className="w-3.5 h-3.5 text-evergreen-forest" />
+                <span>Xem nhanh</span>
+              </button>
+            </div>
+          )}
 
           {/* Location pill over bottom of photo */}
           <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-medium border border-white/15">
@@ -120,17 +140,14 @@ export function PropertyCard({ property, className, onQuickView }: PropertyCardP
             </div>
           </div>
 
-          {/* Title */}
+          {/* Title linking to detail page */}
           <div>
-            <h3
-              onClick={() => onQuickView?.(property)}
-              className={cn(
-                "text-base sm:text-lg font-semibold text-evergreen-text-primary tracking-tight group-hover:text-evergreen-forest transition-colors line-clamp-1",
-                onQuickView && "cursor-pointer"
-              )}
+            <Link
+              href={detailUrl}
+              className="text-base sm:text-lg font-semibold text-evergreen-text-primary tracking-tight hover:text-evergreen-forest transition-colors line-clamp-1 block cursor-pointer"
             >
               {property.title}
-            </h3>
+            </Link>
             {property.tagline && (
               <p className="text-xs text-evergreen-text-secondary mt-1 line-clamp-1">
                 {property.tagline}
@@ -151,24 +168,13 @@ export function PropertyCard({ property, className, onQuickView }: PropertyCardP
           </span>
         </div>
 
-        {onQuickView ? (
-          <button
-            type="button"
-            onClick={() => onQuickView(property)}
-            className="w-10 h-10 rounded-full bg-evergreen-subtle group-hover:bg-evergreen-lime text-evergreen-text-primary group-hover:text-evergreen-dark flex items-center justify-center transition-all duration-300 shadow-xs active:scale-95 cursor-pointer"
-            aria-label={`Xem nhanh thông số ${property.title}`}
-          >
-            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </button>
-        ) : (
-          <Link
-            href={`/bat-dong-san?type=${property.propertyType}`}
-            className="w-10 h-10 rounded-full bg-evergreen-subtle group-hover:bg-evergreen-lime text-evergreen-text-primary group-hover:text-evergreen-dark flex items-center justify-center transition-all duration-300 shadow-xs active:scale-95"
-            aria-label={`Xem thông tin ${property.title}`}
-          >
-            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
-        )}
+        <Link
+          href={detailUrl}
+          className="w-10 h-10 rounded-full bg-evergreen-subtle group-hover:bg-evergreen-lime text-evergreen-text-primary group-hover:text-evergreen-dark flex items-center justify-center transition-all duration-300 shadow-xs active:scale-95"
+          aria-label={`Xem chi tiết ${property.title}`}
+        >
+          <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </Link>
       </div>
     </article>
   );

@@ -299,13 +299,21 @@ export function PropertyQuickViewModal({ property, onClose }: PropertyQuickViewM
               Đóng cửa sổ
             </button>
 
-            <div className="w-full sm:w-auto flex items-center gap-2.5">
+            <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-2.5">
+              <a
+                href={`/bat-dong-san/${property.slug}`}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-evergreen-dark hover:bg-black text-white text-xs sm:text-sm font-semibold transition-all active:scale-95 shadow-xs"
+              >
+                <span>Xem chi tiết đầy đủ</span>
+                <Sparkles className="w-4 h-4 text-evergreen-lime" />
+              </a>
+
               <a
                 href="/lien-he"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-evergreen-lime hover:bg-evergreen-lime-hover text-evergreen-dark text-xs sm:text-sm font-semibold transition-all active:scale-95 shadow-xs"
               >
                 <Calendar className="w-4 h-4 stroke-[2.2]" />
-                <span>Đặt lịch tham quan dự án</span>
+                <span>Liên hệ tư vấn</span>
               </a>
             </div>
           </div>
